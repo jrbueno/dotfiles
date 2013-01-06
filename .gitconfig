@@ -1,0 +1,58 @@
+[user]
+  name = Jose Bueno
+  email = kdebrain@gmail.com
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red
+  new = green
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[merge]
+  tool = p4merge
+[mergetool "p4merge"]
+  cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  trustExitCode = false
+[mergetool]
+  prompt = false
+  keepBackup = false
+[diff]
+  tool = p4diff
+[difftool "p4diff"]
+  cmd = p4merge "$LOCAL" "$BASE"
+[difftool]
+  prompt = false
+[core]
+  autocrlf = input
+  legacyheaders = false
+  excludesfile = /Users/jrbueno/.gitignore
+[gui]
+  fontdiff = -family Monaco -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+[repack]
+  usedeltabaseoffset = true
+[alias]
+  ci = commit
+  co = checkout
+  st = status
+  ch = cherry -v origin
+  aa = add --all
+  dc = diff --cached
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  la = !git l --all
+  mt = mergetool
+  mine = log --author=Jose
+  spull = !git svn fetch && git svn rebase
+  spush = !git svn dcommit
+[github]
+  user = jrbueno
+  token = [GITHUB TOKEN HERE]
