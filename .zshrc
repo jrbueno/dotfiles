@@ -16,7 +16,7 @@ export ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby rails rails3 node npm osx brew)
+plugins=(git ruby rails rails3 node npm osx brew rvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -36,3 +36,5 @@ source ~/.zsh/aliases.zsh
 # get around current directory as "~rvm_rvmrc_cwd" weirdness
 unsetopt auto_name_dirs
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

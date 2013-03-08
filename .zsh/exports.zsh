@@ -1,4 +1,4 @@
-export PATH="/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:~/Library/bin:$PATH"
+export PATH="/usr/local/Cellar/smlnj/110.75/libexec/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:~/Library/bin:$PATH"
 export CDPATH=:~/code
 export EDITOR="vim"
 #export VISUAL="mvim -f"

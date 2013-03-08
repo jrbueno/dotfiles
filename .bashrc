@@ -36,3 +36,5 @@ if [ "$OSTYPE" == "msys" ]; then
   [[ -s $USERPROFILE/.pik/.pikrc ]] && source $USERPROFILE/.pik/.pikrc
 fi
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
