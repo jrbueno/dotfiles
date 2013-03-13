@@ -85,7 +85,7 @@ set shell=bash
 " http://www.shallowsky.com/linux/noaltscreen.html
 "set t_ti= t_te=
 " Show 3 lines of context around the cursor.
-set scrolloff=3
+set scrolloff=4
 set nobackup
 set nowritebackup
 set backupdir=./tmp,$HOME/.vim/tmp/,$TEMP/,.
@@ -138,10 +138,10 @@ augroup END
 " let the terminal determine the colors to use
  set background=dark
 if has("gui_running") || &t_Co >= 256
-  :color spicycodegui
+  :color grb256
 else
   set t_Co=16     " every terminal I use supports at least 16, right?
-  :color spicycode  " a 16-color safe theme
+  :color grb4  " a 16-color safe theme
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
