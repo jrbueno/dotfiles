@@ -56,3 +56,5 @@
 [github]
   user = jrbueno
   token = [GITHUB TOKEN HERE]
+[push]
+	default = simple
