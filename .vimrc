@@ -20,29 +20,23 @@ Bundle 'gmarik/vundle'
 
 " original repos on github
 Bundle 'Raimondi/delimitMate'
-Bundle 'bbommarito/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
 Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
-"Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
+
+
 " vim-scripts repos
 Bundle 'localvimrc'
 Bundle 'taglist.vim'
-" non github repos
-" vim-less - for LESS.js/dotLESS
-"Bundle 'git://gist.github.com/369178.git'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -73,19 +67,21 @@ set number
 set cursorline
 set title
 set switchbuf=useopen
-set winwidth=79
+"set winwidth=79
+
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
-set winheight=5
-set winminheight=5
-set winheight=999
+"set winheight=5
+"set winminheight=5
+"set winheight=999
 set shell=bash
+
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
 "set t_ti= t_te=
 " Show 3 lines of context around the cursor.
-set scrolloff=4
+"set scrolloff=4
 set nobackup
 set nowritebackup
 set backupdir=./tmp,$HOME/.vim/tmp/,$TEMP/,.
