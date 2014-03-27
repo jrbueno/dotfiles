@@ -37,6 +37,10 @@ Bundle 'wincent/Command-T'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 
+"JavaScript Tools"
+Bundle 'moll/vim-node'
+Bundle 'pangloss/vim-javascript'
+Bundle 'jelera/vim-javascript-syntax'
 
 " vim-scripts repos
 Bundle 'localvimrc'
