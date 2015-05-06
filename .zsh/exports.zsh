@@ -1,4 +1,4 @@
-export PATH="/usr/local/Cellar/smlnj/110.75/libexec/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:~/Library/bin:$PATH"
+export PATH="/usr/local/Cellar/smlnj/110.75/libexec/bin:/usr/local/bin:/usr/local/sbin:~/Library/bin:$PATH"
 export CDPATH=:~/code
 export EDITOR="vim"
 #export VISUAL="mvim -f"
@@ -8,3 +8,7 @@ export CLICOLOR=1
 export PGOPTIONS='-c client_min_messages=WARNING'
 export NODE_PATH="/usr/local/lib/node_modules"
 
+# fixes the issue with ZSH / NPM until ZSH is upgrade to the new function _npm
+if type npm > /dev/null; then
+  eval "$(npm completion)"
+fi
