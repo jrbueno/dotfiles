@@ -12,3 +12,5 @@ export NODE_PATH="/usr/local/lib/node_modules"
 if type npm > /dev/null; then
   eval "$(npm completion)"
 fi
+
+eval "$(rbenv init -)"
