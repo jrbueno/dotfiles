@@ -40,8 +40,8 @@ map <Leader>tm :tabmove
 map <Leader>n :NERDTreeToggle<cr>
 
 " previous/next buffer (for going without tabs)
-nmap g[ :bp<cr>
-nmap g] :bn<cr>
+nmap <Leader>[ :bp<cr>
+nmap <Leader>] :bn<cr>
 
 " ack for project-wide searching (TRAILING WHITESPACE IS INTENTIONAL)
 nmap g/ :Ack!

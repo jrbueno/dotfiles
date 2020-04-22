@@ -16,7 +16,8 @@ export ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby gem rails node npm osx brew rbenv heroku atom bower)
+#plugins=(git ruby gem rails node npm npx osx brew rbenv heroku bower)
+plugins=(git ruby gem rails node npm osx brew rbenv heroku bower)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,3 +39,10 @@ unsetopt auto_name_dirs
 
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+eval "$(rbenv init -)"
+
+#nodeenv
+eval "$(nodenv init -)"
+
+#.Net Core Dnx & Dnx Version Manager
+[ -s "/Users/jrbueno/.dnx/dnvm/dnvm.sh" ] && . "/Users/jrbueno/.dnx/dnvm/dnvm.sh" # Load dnvm

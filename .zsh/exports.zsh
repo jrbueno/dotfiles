@@ -1,4 +1,4 @@
-export PATH="/usr/local/Cellar/smlnj/110.75/libexec/bin:/usr/local/bin:/usr/local/sbin:~/Library/bin:$PATH"
+export PATH="/usr/local/Cellar/smlnj/110.84/bin:/usr/local/bin:/usr/local/sbin:~/Library/bin:$PATH"
 export CDPATH=:~/code
 export EDITOR="vim"
 #export VISUAL="mvim -f"
@@ -13,4 +13,4 @@ if type npm > /dev/null; then
   eval "$(npm completion)"
 fi
 
-eval "$(rbenv init -)"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
