@@ -1,6 +1,6 @@
 [user]
-  name = Jose Bueno
-  email = dev@jrbueno.com
+	name = Jose Bueno
+	email = dev@jrbueno.com
 [color]
   branch = auto
   diff = auto
@@ -35,7 +35,7 @@
 [core]
   autocrlf = input
   legacyheaders = false
-  excludesfile = /Users/jrbueno/.gitignore
+	excludesfile = /Users/jrbueno/.gitignore
 [gui]
   fontdiff = -family Monaco -size 12 -weight normal -slant roman -underline 0 -overstrike 0
 [repack]
@@ -58,3 +58,11 @@
   token = [GITHUB TOKEN HERE]
 [push]
 	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/jrbueno/.stCommitMsg
