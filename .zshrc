@@ -43,6 +43,3 @@ eval "$(rbenv init -)"
 
 #nodeenv
 eval "$(nodenv init -)"
-
-#.Net Core Dnx & Dnx Version Manager
-[ -s "/Users/jrbueno/.dnx/dnvm/dnvm.sh" ] && . "/Users/jrbueno/.dnx/dnvm/dnvm.sh" # Load dnvm
