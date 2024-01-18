@@ -1,0 +1,2 @@
+require("kdebrain")
+print("hello")
