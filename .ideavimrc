@@ -23,7 +23,8 @@ set incsearch
 
 set number
 set relativenumber
-
+set showmode
+set showcmd
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
@@ -84,8 +85,9 @@ if has('ide')
     nnoremap gi :action ReSharperGotoImplementation<CR>
     nmap <leader>p <Action>(ParameterInfo)
     nmap <leader>i <Action>(QuickImplementations)
-    nmap <leader>i <Action>(QuickImplementations)
-    
+    nmap <leader>u <Action>(ShowUsages)
+    " map <leader>c <Action>(ChangesView.ToggleCommitUi)
+ 
     nmap <C-j> <Action>(MoveLineDown)
     xmap <C-j> <Action>(MoveLineDown)
     nmap <C-k> <Action>(MoveLineUp)
