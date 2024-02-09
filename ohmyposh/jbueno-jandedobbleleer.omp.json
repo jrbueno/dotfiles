@@ -42,6 +42,14 @@
           "trailing_diamond": "\ue0b4",
           "type": "git"
         },
+		{
+		  "type": "dotnet",
+		  "style": "powerline",
+		  "powerline_symbol": "",
+		  "foreground": "#000000",
+		  "background": "#00ffff",
+		  "template": "  {{ .Full }} "
+		},
         {
           "background": "#6CA35E",
           "foreground": "#ffffff",

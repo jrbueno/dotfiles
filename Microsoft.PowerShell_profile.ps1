@@ -1,11 +1,11 @@
-#Set-Location C:\SmartgisticsRepos
+#Set-Location C:\jbueno
 Import-Module posh-git
 Import-Module git-aliases -DisableNameChecking
 
-# oh-my-posh init pwsh | Invoke-Expression
+#oh-my-posh init pwsh | Invoke-Expression
 oh-my-posh init pwsh --config 'C:\jbueno\ohmyposh\jbueno-jandedobbleleer.omp.json' | Invoke-Expression
 
-$env:POSH_GIT_ENABLED = $true
+#$env:POSH_GIT_ENABLED = $true
 
 # function Set-PoshGitStatus {
     # $global:GitStatus = Get-GitStatus
