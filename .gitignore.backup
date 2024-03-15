@@ -1,0 +1,7 @@
+# .gitignore
+node_modules/
+bower_components/
+.DS_Store
+tmp/
+*.swp
+.vim/bundle
