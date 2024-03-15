@@ -18,26 +18,21 @@
   added = yellow
   changed = green
   untracked = cyan
+[init]
+  defaultBranch = main
 [merge]
-  tool = p4merge
-[mergetool "p4merge"]
-  cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-  trustExitCode = false
+  tool = vscode
 [mergetool]
   prompt = false
   keepBackup = false
 [diff]
-  tool = p4diff
-[difftool "p4diff"]
-  cmd = p4merge "$LOCAL" "$BASE"
+  tool = vscode
 [difftool]
   prompt = false
 [core]
   autocrlf = input
   legacyheaders = false
 	excludesfile = /Users/jrbueno/.gitignore
-[gui]
-  fontdiff = -family Monaco -size 12 -weight normal -slant roman -underline 0 -overstrike 0
 [repack]
   usedeltabaseoffset = true
 [alias]
@@ -51,18 +46,8 @@
   la = !git l --all
   mt = mergetool
   mine = log --author=Jose
-  spull = !git svn fetch && git svn rebase
-  spush = !git svn dcommit
 [github]
   user = jrbueno
   token = [GITHUB TOKEN HERE]
 [push]
 	default = simple
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[commit]
-	template = /Users/jrbueno/.stCommitMsg

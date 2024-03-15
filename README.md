@@ -1,5 +1,5 @@
 dotfiles
 ========
 
-A mashup of Steve H. and Holman dotfiles that fits me.
+dotfiles for all the tools in both windows and mac.
 
