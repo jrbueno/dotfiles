@@ -19,41 +19,41 @@ oh-my-posh init pwsh --config 'C:\jbueno\ohmyposh\jbueno-jandedobbleleer.omp.jso
 
 
 # Change $TARGET_BRANCH to your targeted branch, e.g. change from `master` to `main` to delete branches squashed into `main`.
-# TARGET_BRANCH=master 
-# && git checkout -q $TARGET_BRANCH 
-# && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base $TARGET_BRANCH $branch) 
-# && [[ $(git cherry $TARGET_BRANCH $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] 
+# TARGET_BRANCH=master
+# && git checkout -q $TARGET_BRANCH
+# && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base $TARGET_BRANCH $branch)
+# && [[ $(git cherry $TARGET_BRANCH $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]]
 # && git branch -D $branch; done
 # OR you can put this function in a global git alias and call it like this
 # `git delete-squashed` OR `git delete-squashed main`
 #git config --global alias.delete-squashed '!f() { local targetBranch=${1:-master} && git checkout -q $targetBranch && git branch --merged | grep -v "\*" | xargs -n 1 git branch -d && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base $targetBranch $branch) && [[ $(git cherry $targetBranch $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done; }; f'
 
 function gbds {
-	
-	
+
+
 	# $(git for-each-ref refs/heads --format="%(refname:short)" | Select-String "^(\*|\s*($MainBranch|develop|dev)\s*$|^(releases))" -NotMatch).line | foreach {$mergeBase = $(git merge-base $MainBranch $_);$branchTree = $(git rev-parse "$_^{tree}");$newCommit = $(git commit-tree $branchTree -p $mergeBase -m _); Write-Host ($(git cherry $MainBranch $newCommit) -match "^(-)" ? "Should delete $_" : "Not Merged $_")}
 	$MainBranch = Get-Git-MainBranch
-	
-	git checkout -q $MainBranch	
-	
+
+	git checkout -q $MainBranch
+
 	$MergedBranchs = $(git for-each-ref refs/heads --format="%(refname:short)" | Select-String "^(\*|\s*($MainBranch|develop|dev)\s*$|^(releases)|^(release))" -NotMatch).line
 	$MergedBranchs | ForEach-Object {
 		if ([string]::IsNullOrEmpty($_)) {
 			return
 		}
-		$mergeBase = $(git merge-base $MainBranch $_)		
+		$mergeBase = $(git merge-base $MainBranch $_)
 		$branchTree = $(git rev-parse "$_^{tree}")
 		$newCommit = $(git commit-tree $branchTree -p $mergeBase -m _)
-		if($(git cherry $MainBranch $newCommit) -match "^(-)"){			
+		if($(git cherry $MainBranch $newCommit) -match "^(-)"){
 			git branch -D $_.Trim();
 		}
 	}
 }
 
-function cmdh {	
+function cmdh {
 	if($args.count -gt 0)
 	{
-		$term = "*$($args[0])*"	
+		$term = "*$($args[0])*"
 		Get-Content (Get-PSReadlineOption).HistorySavePath | ? { $_ -like "$($term)" }
 	} else { echo "Please pass a term" }
 }
@@ -61,3 +61,31 @@ function cmdh {
 function gbv {
 	git branch -v
 }
+
+
+#Fzf Stuff
+# $env:FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+# $env:FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# $env:FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+#zoxide
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
+Set-Alias -Name 'cd' -Value 'z' -Option AllScope
+
+#Eza - LS
+function myls {
+	eza --color=always --long --git --icons=always $args
+}
+Set-Alias -Name 'ls' -Value myls -Option AllScope
+Set-Alias -Name 'l' -Value myls -Option AllScope
+
+#bat
+Set-Alias -Name 'cat' -Value 'bat' -Option AllScope
+
+
+#random aliases
+function prevdir(){ cd ..  }
+function prevdir2(){ cd ..\..  }
+New-Alias -Name 'whereis' -Value 'Get-Command' -Scope Global -Force
+New-Alias -Name '..' -Value prevdir -Scope Global -Force
+New-Alias -Name '...' -Value prevdir2 -Scope Global -Force

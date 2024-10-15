@@ -64,6 +64,9 @@ if has('ide')
     map <leader>fo <Action>(RecentChangedFiles)
     map <leader>fr <Action>(RecentFiles)
     map <leader>ff <Action>(SearchEverywhere)
+    map <leader>fl <Action>(RiderCollapseToDefinitions)
+    map <leader>[ <Action>(CollapseRegion)
+    map <leader>] <Action>(ExpandRegion)
     map <leader>b <Action>(Switcher)
 
     " Reformat the current line only
@@ -71,6 +74,8 @@ if has('ide')
 
     "" show File Members
     map <leader>m <Action>(FileStructurePopup)
+    "" Unit Test
+    map <leader>tt <Action>(RiderUnitTestRunContextAction)
     
     """ Navigate methods
     map [[ <Action>(MethodUp)
@@ -96,7 +101,12 @@ if has('ide')
     " Hide All Windows
     nnoremap <c-x> :action HideAllWindows<CR>
     map <c-z> <Action>(ToggleDistractionFreeMode)
+    map <c-p> <Action>(TogglePresentationMode)
     map <leader>lh <Action>(LocalHistory.ShowHistory)
+    if &ide =~? 'DataGrip'
+        map <leader>sl <Action>(Console.Jdbc.ChooseSchema)
+        map <leader>ds <Action>(Console.Jdbc.ChooseDataSource)
+    endif
 endif
 
 "" Exit insert mode 
