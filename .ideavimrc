@@ -64,7 +64,6 @@ if has('ide')
     map <leader>fo <Action>(RecentChangedFiles)
     map <leader>fr <Action>(RecentFiles)
     map <leader>ff <Action>(SearchEverywhere)
-    map <leader>fl <Action>(RiderCollapseToDefinitions)
     map <leader>[ <Action>(CollapseRegion)
     map <leader>] <Action>(ExpandRegion)
     map <leader>b <Action>(Switcher)
@@ -74,8 +73,6 @@ if has('ide')
 
     "" show File Members
     map <leader>m <Action>(FileStructurePopup)
-    "" Unit Test
-    map <leader>tt <Action>(RiderUnitTestRunContextAction)
     
     """ Navigate methods
     map [[ <Action>(MethodUp)
@@ -86,8 +83,8 @@ if has('ide')
     xmap <leader>r <Action>(Refactorings.QuickListPopupAction)
     
     nmap <leader>h <Action>(HighlightUsagesInFile)
-    nmap <leader>n <Action>(ReSharperNavigateTo)
-    nnoremap gi :action ReSharperGotoImplementation<CR>
+    "
+
     nmap <leader>p <Action>(ParameterInfo)
     nmap <leader>i <Action>(QuickImplementations)
     nmap <leader>u <Action>(ShowUsages)
@@ -103,9 +100,26 @@ if has('ide')
     map <c-z> <Action>(ToggleDistractionFreeMode)
     map <c-p> <Action>(TogglePresentationMode)
     map <leader>lh <Action>(LocalHistory.ShowHistory)
+
+    " Rider Specific Mappings
+    if &ide =~? 'Rider'
+      map <leader>fl <Action>(RiderCollapseToDefinitions)
+      nmap <leader>n <Action>(ReSharperNavigateTo)
+      nnoremap gi :action ReSharperGotoImplementation<CR>
+
+      "" Unit Test
+      map <leader>tt <Action>(RiderUnitTestRunContextAction)
+    endif
+
+    " DataGrip specific mappings
     if &ide =~? 'DataGrip'
         map <leader>sl <Action>(Console.Jdbc.ChooseSchema)
         map <leader>ds <Action>(Console.Jdbc.ChooseDataSource)
+    endif
+    
+    if &ide =~? 'GoLand'
+        map <leader>tt <Action>(ContextRun)
+        nnoremap gi :action GotoImplementation<CR>
     endif
 endif
 

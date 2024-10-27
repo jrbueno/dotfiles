@@ -1,6 +1,8 @@
 [user]
 	name = Jose Bueno
 	email = dev@jrbueno.com
+[init]
+  defaultBranch = main
 [color]
   branch = auto
   diff = auto
@@ -18,36 +20,23 @@
   added = yellow
   changed = green
   untracked = cyan
-[init]
-  defaultBranch = main
-[merge]
-  tool = vscode
-[mergetool]
-  prompt = false
-  keepBackup = false
-[diff]
-  tool = vscode
-[difftool]
-  prompt = false
 [core]
   autocrlf = input
+  pager = delta
   legacyheaders = false
-	excludesfile = /Users/jrbueno/.gitignore
-[repack]
-  usedeltabaseoffset = true
-[alias]
-  ci = commit
-  co = checkout
-  st = status
-  ch = cherry -v origin
-  aa = add --all
-  dc = diff --cached
-  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  la = !git l --all
-  mt = mergetool
-  mine = log --author=Jose
+  excludesfile = /Users/jrbueno/.gitignore
 [github]
   user = jrbueno
   token = [GITHUB TOKEN HERE]
 [push]
-	default = simple
+  default = simple
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbers = true
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
